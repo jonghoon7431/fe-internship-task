@@ -1,5 +1,4 @@
 import axios from "axios";
-import { API_URL } from "../constants/queryKeys";
 
 export const testApi = axios.create({
   baseURL: "https://jsonplaceholder.typicode.com",
@@ -9,8 +8,10 @@ export const testApi = axios.create({
   },
 });
 
+const API_URL = import.meta.env.VITE_API_URL;
+
 export const api = axios.create({
-  baseURL: API_URL, // 환경변수에서 API URL 가져오기
+  baseURL: API_URL,
   timeout: 5000,
   headers: {
     "Content-Type": "application/json",
