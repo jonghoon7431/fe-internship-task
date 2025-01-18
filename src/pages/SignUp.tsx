@@ -2,10 +2,15 @@ import React from "react";
 import { Link } from "react-router-dom";
 
 const SignUp = () => {
+  const handleSubmit = (e: React.FormEvent) => {
+    e.preventDefault();
+  };
+
   return (
     <div className="container">
       <h1 className="title-text">회원가입</h1>
-      <form className="flex flex-col gap-4 w-[50%]">
+
+      <form className="flex flex-col gap-4 w-[50%]" onSubmit={handleSubmit}>
         <div className="flex flex-col">
           <label htmlFor="userName">닉네임</label>
           <input
