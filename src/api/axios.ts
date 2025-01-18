@@ -24,7 +24,7 @@ api.interceptors.request.use(
   (config) => {
     // 토큰이 필요한 경우 헤더에 추가
     const token = useAuthStore.getState().accessToken;
-    if (token) {
+    if (token && config.url?.startsWith("/user" || "/profile")) {
       config.headers.Authorization = `Bearer ${token}`;
     }
     return config;
