@@ -1,9 +1,27 @@
 import React from "react";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
+import { logIn } from "../api/auth";
 
 const LogIn = () => {
-  const handleSubmit = (e: React.FormEvent) => {
+  const navigate = useNavigate();
+
+  const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
+
+    const formData = new FormData(e.currentTarget);
+    const id = formData.get("id") as string;
+    const password = formData.get("password") as string;
+
+    if (!id || !password) {
+      return alert("아이디와 비밀번호를 입력해주세요");
+    }
+
+    const response = await logIn(id, password);
+
+    if (!response.success) {
+      return alert("로그인 실패");
+    }
+    navigate("/");
   };
 
   return (
@@ -14,7 +32,8 @@ const LogIn = () => {
         <div className="flex flex-col">
           <label htmlFor="userName">아이디</label>
           <input
-            id="userName"
+            id="id"
+            name="id"
             type="text"
             placeholder="아이디를 입력해주세요"
             autoComplete="off"
@@ -26,6 +45,7 @@ const LogIn = () => {
           <label htmlFor="password">비밀번호</label>
           <input
             id="password"
+            name="password"
             type="password"
             placeholder="비밀번호를 입력해주세요"
             autoComplete="new-password"
