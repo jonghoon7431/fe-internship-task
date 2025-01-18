@@ -46,6 +46,7 @@ export default {
             color: "white",
           },
         },
+
         ".container": {
           height: "100%",
           display: "flex",
@@ -58,6 +59,7 @@ export default {
           gap: "1rem",
           width: "50%",
         },
+
         ".title-text": {
           display: "flex",
           "justify-content": "center",
@@ -66,6 +68,7 @@ export default {
           "font-size": "2rem",
           "font-weight": "600",
         },
+
         ".input-auth": {
           border: "1px solid #DEDEDE",
           "border-radius": "4px",
