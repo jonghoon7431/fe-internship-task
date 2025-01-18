@@ -1,9 +1,11 @@
 import React from "react";
 import { Link, useNavigate } from "react-router-dom";
 import { logIn } from "../api/auth";
+import { useAuthStore } from "../store/useAuthStore";
 
 const LogIn = () => {
   const navigate = useNavigate();
+  const { setAccessToken } = useAuthStore();
 
   const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
@@ -16,12 +18,16 @@ const LogIn = () => {
       return alert("아이디와 비밀번호를 입력해주세요");
     }
 
-    const response = await logIn(id, password);
+    try {
+      const response = await logIn(id, password);
+      const { accessToken, success } = response;
+      setAccessToken(accessToken);
 
-    if (!response.success) {
-      return alert("로그인 실패");
+      alert("로그인 되었습니다");
+      navigate("/");
+    } catch (error) {
+      return alert("로그인 실패, 다시 시도해주세요");
     }
-    navigate("/");
   };
 
   return (
