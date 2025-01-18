@@ -1,9 +1,5 @@
+import { LoginResponse, SignUpResponse } from "../types/auth";
 import { api } from "./axios";
-
-type SignUpResponse = {
-  message: string;
-  success: boolean;
-};
 
 export const signUp = async (
   id: string,
@@ -18,4 +14,10 @@ export const signUp = async (
   return response;
 };
 
-export const logIn = async () => {};
+export const logIn = async (id: string, password: string) => {
+  const response: LoginResponse = await api.post("/login?expiresIn=10m", {
+    id: id,
+    password: password,
+  });
+  return response;
+};
