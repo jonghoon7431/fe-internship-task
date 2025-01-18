@@ -1,4 +1,4 @@
-import { LoginResponse, SignUpResponse } from "../types/auth";
+import { GetUserResponse, LoginResponse, SignUpResponse } from "../types/auth";
 import { api } from "./axios";
 
 export const signUp = async (
@@ -19,5 +19,10 @@ export const logIn = async (id: string, password: string) => {
     id: id,
     password: password,
   });
+  return response;
+};
+
+export const getUser = async () => {
+  const response: GetUserResponse = await api.get("/user");
   return response;
 };
