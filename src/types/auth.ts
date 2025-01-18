@@ -15,3 +15,9 @@ export type GetUserResponse = {
   avatar: string | null;
   success: boolean;
 };
+export type EditProfileResponse = {
+  avatar: string; //이미지 url
+  nickname: string;
+  message: string;
+  success: boolean;
+};
