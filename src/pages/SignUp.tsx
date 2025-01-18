@@ -10,7 +10,7 @@ const SignUp = () => {
     <div className="container">
       <h1 className="title-text">회원가입</h1>
 
-      <form className="flex flex-col gap-4 w-[50%]" onSubmit={handleSubmit}>
+      <form className="form-section" onSubmit={handleSubmit}>
         <div className="flex flex-col">
           <label htmlFor="nickName">닉네임</label>
           <input
@@ -21,6 +21,7 @@ const SignUp = () => {
             autoComplete="off"
           />
         </div>
+
         <div className="flex flex-col">
           <label htmlFor="userName">아이디</label>
           <input
@@ -31,6 +32,7 @@ const SignUp = () => {
             autoComplete="off"
           />
         </div>
+
         <div className="flex flex-col">
           <label htmlFor="password">비밀번호</label>
           <input
@@ -41,6 +43,7 @@ const SignUp = () => {
             autoComplete="new-password"
           />
         </div>
+
         <div className="flex flex-col">
           <label htmlFor="passwordCheck">비밀번호 확인</label>
           <input
@@ -56,7 +59,7 @@ const SignUp = () => {
           <button type="submit" className="button-submit">
             회원가입
           </button>
-          <Link to={"/log-in"} className="button-submit flex justify-center">
+          <Link to={"/log-in"} className="button-secondary flex justify-center">
             <button type="button">로그인 하러 가기</button>
           </Link>
         </div>

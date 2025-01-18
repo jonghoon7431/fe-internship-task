@@ -35,11 +35,28 @@ export default {
             "background-color": "#5C6D86",
           },
         },
+        ".button-secondary": {
+          padding: "8px 12px",
+          "background-color": "white",
+          color: "black",
+          border: "1px solid #475569",
+          "border-radius": "8px",
+          "&:hover": {
+            "background-color": "#5C6D86",
+            color: "white",
+          },
+        },
         ".container": {
           height: "100%",
           display: "flex",
           "flex-direction": "column",
           "align-items": "center",
+        },
+        ".form-section": {
+          display: "flex",
+          "flex-direction": "column",
+          gap: "1rem",
+          width: "50%",
         },
         ".title-text": {
           display: "flex",
