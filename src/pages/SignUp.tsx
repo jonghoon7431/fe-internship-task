@@ -12,8 +12,9 @@ const SignUp = () => {
 
       <form className="flex flex-col gap-4 w-[50%]" onSubmit={handleSubmit}>
         <div className="flex flex-col">
-          <label htmlFor="userName">닉네임</label>
+          <label htmlFor="nickName">닉네임</label>
           <input
+            id="nickName"
             type="text"
             placeholder="한글 혹은 영어로 입력해주세요"
             className="input-auth"
@@ -23,6 +24,7 @@ const SignUp = () => {
         <div className="flex flex-col">
           <label htmlFor="userName">아이디</label>
           <input
+            id="userName"
             type="text"
             placeholder="3글자 이상으로 입력해주세요"
             className="input-auth"
@@ -30,8 +32,9 @@ const SignUp = () => {
           />
         </div>
         <div className="flex flex-col">
-          <label htmlFor="userName">비밀번호</label>
+          <label htmlFor="password">비밀번호</label>
           <input
+            id="password"
             type="password"
             placeholder="영문, 숫자 혼합 8자 이상으로 입력해주세요"
             className="input-auth"
@@ -39,8 +42,9 @@ const SignUp = () => {
           />
         </div>
         <div className="flex flex-col">
-          <label htmlFor="userName">비밀번호 확인</label>
+          <label htmlFor="passwordCheck">비밀번호 확인</label>
           <input
+            id="passwordCheck"
             type="password"
             placeholder="비밀번호를 다시 입력해주세요"
             className="input-auth"
