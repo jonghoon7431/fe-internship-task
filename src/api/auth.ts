@@ -1,4 +1,9 @@
-import { GetUserResponse, LoginResponse, SignUpResponse } from "../types/auth";
+import {
+  EditProfileResponse,
+  GetUserResponse,
+  LoginResponse,
+  SignUpResponse,
+} from "../types/auth";
 import { api } from "./axios";
 
 export const signUp = async (
@@ -24,5 +29,13 @@ export const logIn = async (id: string, password: string) => {
 
 export const getUser = async () => {
   const response: GetUserResponse = await api.get("/user");
+  return response;
+};
+
+export const editProfile = async (avatar: File, nickname: string) => {
+  const response: EditProfileResponse = await api.patch("/profile", {
+    avatar: avatar,
+    nickname: nickname,
+  });
   return response;
 };
