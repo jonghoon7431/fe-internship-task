@@ -1,10 +1,10 @@
 import React from "react";
+import { RouterProvider } from "react-router-dom";
+import router from "./routes/router";
 function App() {
   return (
     <>
-      <div className="w-9 bg-slate-400">
-        Click on the Vite and React logos to learn more
-      </div>
+      <RouterProvider router={router} />
     </>
   );
 }
