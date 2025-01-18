@@ -9,3 +9,9 @@ export type LoginResponse = {
   avatar: string | null;
   nickname: string;
 };
+export type GetUserResponse = {
+  id: string;
+  nickname: string;
+  avatar: string | null;
+  success: boolean;
+};
