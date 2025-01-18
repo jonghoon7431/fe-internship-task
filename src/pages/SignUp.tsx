@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import { signUp } from "../api/auth";
 import {
   isIdValidate,
@@ -8,6 +8,8 @@ import {
 } from "../utils/validate";
 
 const SignUp = () => {
+  const navigate = useNavigate();
+
   const [nickName, setNickName] = useState("");
   const [id, setId] = useState("");
   const [password, setPassword] = useState("");
@@ -16,6 +18,7 @@ const SignUp = () => {
     [key: string]: boolean;
   }>({});
 
+  //유효성 검사
   const handleInput = (e: React.ChangeEvent<HTMLInputElement>) => {
     const { name, value } = e.target;
     if (name === "nickName") {
@@ -46,11 +49,32 @@ const SignUp = () => {
   };
 
   const handleSubmit = async (e: React.FormEvent) => {
-    console.log("work");
     e.preventDefault();
 
+    //유효성검사 - validation error 확인
+    const requiredFields = {
+      nickName: "닉네임",
+      id: "아이디",
+      password: "비밀번호",
+    };
+    const missingFields = Object.keys(requiredFields).filter(
+      (key) => !e.currentTarget[key]?.value || validationErrors[key]
+    );
+    if (missingFields.length > 0) {
+      return alert("모든 정보를 바르게 입력해주세요");
+    }
+
     const response = await signUp(id, password, nickName);
-    console.log(response);
+    // console.log(response);
+
+    if (confirm("로그인 페이지로 이동하시겠습니까?")) {
+      navigate("/login");
+      return;
+    }
+    setNickName("");
+    setId("");
+    setPassword("");
+    setPasswordCheck("");
   };
 
   return (
