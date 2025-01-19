@@ -7,8 +7,6 @@ import LogIn from "../pages/LogIn";
 import SignUp from "../pages/SignUp";
 
 export const router = createBrowserRouter([
-  //TODO public, private 라우트 설정
-  //TODO 404페이지
   {
     path: "/",
     element: <Layout />,
